@@ -8,6 +8,7 @@ profile_bio: Univ. of Seoul / Chemical Engineering
 baseurl: ""
 permalink: pretty
 
+future: true
 # Gems
 plugins:
   - jekyll-gist
