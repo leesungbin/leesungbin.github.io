@@ -1,17 +1,24 @@
 # Setup
-title: Poole
-tagline: The Jekyll Butler
-url: https://getpoole.com
-paginate: 1
+title: LSB의 블로그
+tagline: Tech Study Blog
+url: https://leesungbin.github.io
+profile_name: 이성빈
+profile_bio: Univ. of Seoul / Chemical Engineering
+
 baseurl: ""
 permalink: pretty
 
 # Gems
 plugins:
   - jekyll-gist
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-seo-tag
 
+pagination:
+  enabled: true
+  per_page: 10
+  sort_reverse: true
+  
 # Optimize Jekyll
 exclude:
   - .editorconfig
@@ -29,15 +36,18 @@ sass:
 # Options
 
 # Replace this value and uncomment to enable Google Analytics tracking
-# ga_analytics: UA-000000-0
+ga_analytics: UA-133822239-2
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: 이성빈
+  url: https://leesungbin.github.io
+  email: lsb918@likelion.org
 
 # Custom vars
-version: 3.0.0
+version: 0.1.0
 github:
-  repo: https://github.com/poole/poole
+  repo: https://github.com/leesungbin
+
+
+# excerpt_seperator: <!--break-->

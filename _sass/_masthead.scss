@@ -3,6 +3,9 @@
 // Super small header above the content for site name and short description.
 
 .masthead {
+  position: absolute;
+  top: 0;
+  right: 1rem;
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
@@ -14,10 +17,13 @@
   color: $gray-4;
 
   a {
-    color: inherit;
+    color: #1A1A1A;
+    text-decoration: none;
   }
 
   small {
+    color: #1A1A1A;
+    text-align: center;
     font-size: 75%;
     font-weight: 400;
     opacity: .5;

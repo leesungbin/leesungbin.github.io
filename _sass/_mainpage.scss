@@ -1,0 +1,143 @@
+$pc-view: 500px;
+
+.title_container {
+  width: 100%;
+}
+
+.maintitle {
+  background-image: url("/assets/main/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position-y: 80%;
+  width: 100%;
+}
+
+// .profile_container {
+//   position: relative;
+//   top: -55px;
+// }
+
+.profile {
+  // margin-top: -110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .image {
+    background-image: url("/assets/main/me.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 5px 5px 5px grey;
+  }
+
+  // .info {
+
+  // }
+  .name {
+    margin: 0.3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .bio {
+    margin: 0.3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    .infoicon {
+      width: 36px;
+      height: 36px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0.3rem;
+      border-radius: 0.3rem;
+    }
+  }
+}
+.github {
+  background-image: url("/assets/main/github.png");
+}
+.insta {
+  background-image: url("/assets/main/insta.svg");
+}
+.gmail {
+  background-image: url("/assets/main/gmail.png")
+}
+
+.writer_info {
+  margin-bottom: 3rem;
+}
+
+.writer {
+  display: flex;
+  .image {
+    flex-shrink: 0;
+    background-image: url("/assets/main/me.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 70px;
+    width: 140px;
+    height: 140px;
+    margin-right: 3rem;
+  }
+  .social {
+    display: flex;
+    .infoicon {
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-right: 0.3rem;
+      border-radius: 0.3rem;
+    }
+  }
+}
+@media screen and (min-width: $pc-view) { // pc
+  .maintitle {
+    height: 300px;
+  }
+  .profile {
+    margin-top: -110px;
+
+    .image {
+      border-radius: 110px;
+      width: 220px;
+      height: 220px;
+    }
+    .name {
+      font-size: 36px;
+    }
+    .bio {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: $pc-view) { // mobile
+  .maintitle {
+    height: 200px;
+  }
+  .profile {
+    margin-top: -70px;
+    
+    .image {
+      border-radius: 70px;
+      width: 140px;
+      height: 140px;
+    }
+    .name {
+      font-size: 28px;
+    }
+    .bio {
+      font-size: 14px;
+    }
+  }
+}
