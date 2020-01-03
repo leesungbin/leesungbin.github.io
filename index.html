@@ -6,7 +6,7 @@ pagination:
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
   <article class="post">
     <hr />
     <h1 class="post-title">
@@ -21,7 +21,7 @@ pagination:
   {% endfor %}
 </div>
 
-{% comment %} <div class="pagination">
+<div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-item older" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
   {% else %}
@@ -32,4 +32,4 @@ pagination:
   {% else %}
     <span class="pagination-item newer">Newer</span>
   {% endif %}
-</div> {% endcomment %}
+</div>
