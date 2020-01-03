@@ -3,6 +3,7 @@ layout: post
 title:  "Django Graphene 튜토리얼 따라하기 4"
 date:   2020-01-01 15:50:00 +0700
 categories: [django, graphql, relay]
+published: true
 ---
 
 > GraphQL Schema에 대하여 좀 더 알아보면서,
