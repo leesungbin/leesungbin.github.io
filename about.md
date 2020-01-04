@@ -27,7 +27,7 @@ title: About
 
 <br/>
 
-* Auossistant (오늘학식)
+* Auossistant ([오늘학식](https://assistant.google.com/services/a/uid/00000004685500b2?hl=ko-KR))
   * Google Assistant - 오늘 학식
   * Dialogflow, AWS Lambda, NodeJS
   * 2018.07 ~ 2018.08
