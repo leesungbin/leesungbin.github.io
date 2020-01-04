@@ -2,15 +2,13 @@ const x2js = new X2JS();
 var json = [];
 
 const search = async (text) => {
-  // console.log(json.urlset.url);
-  let titles = json.urlset.url.map(e => { return e.title });
-
-  for (let i = 0; i < titles.length; i++) {
-    titles[i] = englishDownCase(titles[i]);
+  let info = json.urlset.url.map(e => { return { title: e.title, loc: e.loc } });
+  for (let i = 0; i < info.length; i++) {
+    info[i].title = englishDownCase(info[i].title);
   }
   let textDownCase = englishDownCase(text);
-  const filtered = titles.filter(e => {
-    return e.indexOf(textDownCase) > -1
+  const filtered = info.filter(e => {
+    return e.title.indexOf(textDownCase) > -1
   });
   return filtered;
 }
@@ -34,3 +32,16 @@ $(window).on('load', async function () {
   json = await x2js.xml_str2json(xmlText);
   // console.log(json);
 });
+
+$(document).ready(function () {
+  $("#searchbox").on("keyup", async function () {
+    $("#searchresult").empty();
+    const text = $(this).val();
+    if (text.length >= 2) {
+      const res = await search(text);
+      res.map(e => {
+        $("#searchresult").append(`<li class="resultli"><a href="${e.loc}">${e.title}</a></li>`)
+      })
+    }
+  })
+})
