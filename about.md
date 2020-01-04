@@ -9,7 +9,7 @@ title: About
 
 <br/>
 
-## Projects
+## 프로젝트
 
 * [SAFT-GO](https://saftgo.app)
   * 웹 기반 물질의 평형 계산
