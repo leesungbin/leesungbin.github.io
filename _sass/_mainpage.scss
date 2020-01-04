@@ -172,9 +172,9 @@ $pc-view: 500px;
     -moz-border-radius: 10em;
     border-radius: 10em;
     
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
   }
   input[type=search]:focus {
     background-image: url("/static/img/search-13-16.png");
@@ -208,7 +208,7 @@ $pc-view: 500px;
   -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
   -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
   box-shadow: 0 0 5px rgba(109,207,246,.5);
-  
+
   .resultli {
     margin: 0;
     padding: 8px;
