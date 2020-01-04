@@ -39,6 +39,10 @@ $pc-view: 500px;
     margin: 0.3rem;
     display: flex;
     justify-content: center;
+    a {
+      color: #1A1A1A;
+      text-decoration: none;
+    }
   }
   .bio {
     margin: 0.3rem;

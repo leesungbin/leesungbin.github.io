@@ -1,30 +1,48 @@
 ---
-layout: page
+layout: default
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
 
-There are currently two themes built on Poole:
+서울시립대학교에서 화학공학을 전공했습니다. (2016.03 ~ 2019.02)
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+<br/>
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+## Projects
 
-## Setup
+* [SAFT-GO](https://saftgo.app)
+  * 웹 기반 물질의 평형 계산
+  * Google Cloud Run, Google Cloud SQL
+  * Go, React, TypeScript
+  * 2019.09 ~ 2019.12
 
-Some fun facts about the setup of this project include:
+<br/>
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+* 시공간
+  * 내 주변 맛집 추천/식당리뷰/나만의 맛집지도
+    * [Android](https://play.google.com/store/apps/details?id=app.timeandspace.rn&hl=ko), [IOS]([https://apps.apple.com/kr/app/%EC%8B%9C%EA%B3%B5%EA%B0%84/id1478094613](https://apps.apple.com/kr/app/시공간/id1478094613))
+  * React Native, TypeScript, Go
+  * 2019.06 ~ 2019.12 - Frontend Engineering
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+<br/>
 
-Thanks for reading!
+* Auossistant (오늘학식)
+  * Google Assistant - 오늘 학식
+  * Dialogflow, AWS Lambda, NodeJS
+  * 2018.07 ~ 2018.08
+
+<br/>
+
+* [UOS-Lion](https://uos.likelion.org)
+  * 멋쟁이사자처럼 7기 모집 홍보
+  * 2019.02
+
+<br/>
+
+* [Uosplan](http://uosplan.com)
+  * 서울시립대 강의계획서 확인
+  * Django, AWS EC2
+  * 2019.02
+
+<br/>
