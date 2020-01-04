@@ -11,15 +11,10 @@ layout: detail
 {% if site.related_posts != empty %}
 <aside class="related">
   <h3>Related posts</h3>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          {{ post.title }}
-          <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small>
-        </a>
-      </li>
-    {% endfor %}
+  <ul id="related-posts">
+  {% comment %} jquery로 유사도 비교하여 넣기 {% endcomment %}
   </ul>
 </aside>
 {% endif %}
+
+<script src="{{ site.baseurl }}/static/js/relatedMatcher.js"></script>
