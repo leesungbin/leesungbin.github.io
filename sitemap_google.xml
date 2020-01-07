@@ -26,12 +26,6 @@ sitemap:
       {% else %}
         <priority>0.5</priority>
       {% endif %}
-      <title>{{ post.title | xml_escape }}</title>
-      <categories>
-        {% for category in post.categories %}
-        <category>{{ category | xml_escape}}</category>
-        {% endfor %}
-      </categories>
     </url>
     {% endunless %}
   {% endfor %}
