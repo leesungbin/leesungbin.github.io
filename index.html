@@ -14,7 +14,13 @@ pagination:
         {{ post.title }}
       </a>
     </h1>
-
+    <div class="tags">
+    {% for category in post.categories%}
+      <div class="tag">
+        {{ category }}
+      </div>
+    {% endfor %}
+    </div>
     <p>{{ post.excerpt | strip_html | truncatewords: 40, '...' }}</p>
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
   </article>

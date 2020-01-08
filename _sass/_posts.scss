@@ -76,3 +76,17 @@
   color: #268BD2;
   text-decoration: none;
 }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  .tag {
+    margin: 0 10px 8px 0;
+    padding: 3px 6px 3px 6px;
+    
+    text-align: center;
+    min-width: 50px;
+    border-radius: 4px;
+    background-color: #33CCFC;
+    color: #000000;
+  }
+}
