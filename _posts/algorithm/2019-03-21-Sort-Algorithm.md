@@ -265,14 +265,3 @@ int main(){
 
 <br/><br/>
 
-## Heap Sort
-
-
-
-<br/><br/>
-
-
-
-## Topological Sort
-
-<br/><br/>
