@@ -57,13 +57,13 @@ graphql 서버를 만들때에는
 const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs = gql`
-	type Book {
-	  title: String
-		author: String
+  type Book {
+    title: String
+    author: String
   }
-	type Query {
-		books: [Book]
-	}
+  type Query {
+    books: [Book]
+  }
 `;
 ```
 
@@ -157,10 +157,10 @@ node index.js
 
 ```graphql
 query {
-	books {
-		title
-		author
-	}
+  books {
+    title
+    author
+  }
 }
 ```
 
