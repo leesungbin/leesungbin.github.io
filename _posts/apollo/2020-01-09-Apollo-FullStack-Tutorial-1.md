@@ -154,9 +154,11 @@ export const typeDef = gql`
 
 # 3. Apollo 서버 생성
 
-이제 `src/inde.ts` 파일을 작성해봅니다.
+이제 `src/index.ts` 파일을 작성해봅니다.
 
 ```typescript
+// src/index.ts
+
 import { ApolloServer } from 'apollo-server';
 import { typeDefs } from './schema';
 
