@@ -3,10 +3,11 @@ layout: post
 title: "Apollo로 풀스택하기 2"
 date: 2020-01-09 20:29:00 +0700
 categories: [apollo, graphql, nodejs, react, typescript]
-published: false
 ---
 
-> 이전 글에 이어서, apollo 서버 개발을 계속 진행합니다. Space-X의 data를 가져오고, database와 apollo를 연결하는 방법에 대하여 알아봅니다.
+> 이전 글에 이어서, apollo 서버 개발을 계속 진행합니다.
+>
+> Space-X의 data를 가져오는 방법에 대하여 알아봅니다.
 
 <br/>
 
@@ -131,9 +132,8 @@ export class LaunchAPI extends RESTDataSource {
 
 <br/>
 
-# 5. Database 연결하기
-
 현재까지 우리가 작성한 것은 읽을 수 밖에 없는 형태입니다.
 
 사용자 및 사용자에 대한 여행 관련 데이터가 담길 수 있는 데이터베이스가 필요합니다.
 
+다음 글에서 데이터베이스 설정과 관련하여 알아보도록 하겠습니다.
