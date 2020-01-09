@@ -205,5 +205,5 @@ server.listen().then(({url}) => { console.log(`Server running on ${url}`)});
 
 아직 data도 없고, 각 항목에 대한 resolver를 작성해보지 않았기 때문에, 작동하는 query를 작성할 수는 없습니다.
 
-다음 글에서는 resolver를 작성하기 전에, 데이터베이스를 연결해보도록 하겠습니다.
+다음 글에서 Space-X API에 접근하여 REST API를 GraphQL로 파싱하는 방법을 알아봅니다.
 
