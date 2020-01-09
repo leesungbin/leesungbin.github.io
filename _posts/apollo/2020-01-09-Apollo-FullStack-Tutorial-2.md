@@ -11,7 +11,7 @@ categories: [apollo, graphql, nodejs, react, typescript]
 
 <br/>
 
-#4. REST에서 Graph로 (`Apollo Datasource`)
+# 4. REST에서 Graph로 (`Apollo Datasource`)
 
 Space-X API는 REST(REpresentational State Transfer) 서비스를 제공합니다.
 
