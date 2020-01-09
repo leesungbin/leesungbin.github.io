@@ -21,7 +21,7 @@ title: About
 
 * 시공간
   * 내 주변 맛집 추천/식당리뷰/나만의 맛집지도
-    * [Android](https://play.google.com/store/apps/details?id=app.timeandspace.rn&hl=ko), [IOS]([https://apps.apple.com/kr/app/%EC%8B%9C%EA%B3%B5%EA%B0%84/id1478094613](https://apps.apple.com/kr/app/시공간/id1478094613))
+    * [Android](https://play.google.com/store/apps/details?id=app.timeandspace.rn&hl=ko), [IOS](https://apps.apple.com/kr/app/%EC%8B%9C%EA%B3%B5%EA%B0%84/id1478094613)
   * React Native, TypeScript, Go
   * 2019.06 ~ 2019.12 - Frontend Engineering
 
