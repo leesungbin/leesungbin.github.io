@@ -5,7 +5,11 @@ date: 2020-01-09 19:16:00 +0700
 categories: [apollo, graphql, nodejs, react, typescript]
 ---
 
->이 포스트에서는 Apollo를 사용하여 풀스택 서비스를 구현해봅니다. ES6 문법 기반으로, Typescript를 사용하여 진행할 것입니다. Apollo 문서가 제공하는 공식 튜토리얼을 타입스크립트를 사용하여 따라해본다고 생각하시면 됩니다. [링크](https://www.apollographql.com/docs/tutorial/introduction/)
+>이 포스트에서는 Apollo를 사용하여 풀스택 서비스를 구현해봅니다.
+>
+>ES6 문법 기반으로, Typescript를 사용하여 진행할 것입니다.
+>
+>Apollo 문서가 제공하는 공식 튜토리얼을 타입스크립트를 사용하여 따라해본다고 생각하시면 됩니다. [링크](https://www.apollographql.com/docs/tutorial/introduction/)
 
 <br/>
 
@@ -15,7 +19,7 @@ categories: [apollo, graphql, nodejs, react, typescript]
 
 우리는 [SpaceX-API](https://github.com/r-spacex/SpaceX-API) 의 데이터를 사용할 것입니다.
 
-클라이언트(React)와 서버(Node.js)를 모두 구현해 볼 것이고, 서버먼저 개발 후에 클라이언트 개발을 진행합니다.
+클라이언트(React)와 서버(Node.js)를 모두 구현해 볼 것이고, 먼저 서버를 개발 한 후, 클라이언트 개발을 진행합니다.
 
 <br/>
 
@@ -201,5 +205,5 @@ server.listen().then(({url}) => { console.log(`Server running on ${url}`)});
 
 아직 data도 없고, 각 항목에 대한 resolver를 작성해보지 않았기 때문에, 작동하는 query를 작성할 수는 없습니다.
 
-다음 글에서 resolver를 작성해보도록 하겠습니다.
+다음 글에서는 resolver를 작성하기 전에, 데이터베이스를 연결해보도록 하겠습니다.
 
