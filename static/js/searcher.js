@@ -27,7 +27,7 @@ const englishDownCase = (text) => {
 }
 
 $(window).on('load', async function () {
-  const xml = await fetch("/sitemap.xml");
+  const xml = await fetch("/data.xml");
   const xmlText = await xml.text();
   json = await x2js.xml_str2json(xmlText);
 });
