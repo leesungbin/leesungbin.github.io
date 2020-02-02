@@ -2,7 +2,7 @@
 layout: post
 title: "Apollo로 풀스택하기 1"
 date: 2020-01-09 19:16:00 +0700
-categories: [apollo, graphql, nodejs, react, typescript]
+categories: [apollo, graphql, nodejs, react, typescript, sqlite3]
 ---
 
 >이 포스트에서는 Apollo를 사용하여 풀스택 서비스를 구현해봅니다.
