@@ -3,7 +3,7 @@ layout: post
 title: "어떻게 해야 Go를 잘 쓸까 고민(Effective Go) 3"
 date: 2020-02-03 01:28:00 +0700
 categories: [golang, effectivego]
-published: false
+published: true
 ---
 
 > Effective Go 문서를 읽어보면서, Golang에 대한 이해를 높이고 좋은 코드를 작성하는 것이 목표입니다.
@@ -144,21 +144,195 @@ x := Sum(&array)
 
 ### Slices
 
-Go에서 대부분의 Array 프로그래밍을 할 때는, 단순한 Array보다는 Slice를 사용하는 것이 좋다.
+Go에서 대부분의 Array 프로그래밍을 할 때는, 단순한 Array보다는 Slice를 사용하는 것이 좋습니다. Slice는 자신을 구성하는 array의 참조를 갖고 있습니다. 그래서 어떤 slice 변수를 다른 변수에도 저장하면 두 변수는 동일한 array를 참조하게 됩니다. 그래서 어떤 함수가 slice를 argument로 받아서 변경을 가하는 것은, C에서 함수에 배열을 포인터 형식으로 전달하는 것과 유사합니다.
+
+```go
+// 읽은 byte 수(n)과 error 값을 return 한다.
+func (f *File) Read(buf []byte) (n int, err error)
+
+// 어떤 버퍼의 첫 32 bytes를 읽으려면 다음과 같이 코드를 작성하면 된다.
+n, err := f.read(buf[0:32])
+```
+
+slice의 길이는 변할 수 있다. 만약 slice의 capacity를 넘어선 data를 Append하려하면 error가 발생할 것이다. 이러한 문제를 해결할 수 있는 Append 함수는 다음과 같이 구현해볼 수 있다.
+
+```go
+func Append(slice, data []byte) []byte {
+  l := len(slice)
+  if l + len(data) > cap(slice) { // slice의 용량을 확장해야하는 상황
+    // 용량을 확장한 slice를 생성한다.
+    newSlice := make([]byte, (l+len(data))*2)
+    // slice의 data를 newSlice로 복사한다.
+    copy(newSlice, slice)
+    // slice는 newSlice가 참조하는 array를 참조하게 한다.
+    slice = newSlice
+  }
+  // 기존 데이터에, data를 붙였을 때
+  // length 계산이 제대로 되게 하기 위해 다음과 같이 한다.
+  slice = slice[0:l+len(data)]
+  // slice의 기존 데이터 뒤에 data를 복사한다.
+  copy(slice[l:], data)
+  // Append작업이 끝난 slice를 return 해준다. **
+  return slice
+}
+```
+
+* Argument로 전달된 slice는 그저 값이 전달되는 것이기 때문에, 수정 된 slice를 함수의 실행 결과로써 전달해주지 않으면, 변경된 값을 가질 수 없다.
 
 <br/>
 
 ### Two-dimensional slices
 
+2D array, slice를 만들기 위해서는 다음과 같은 정의가 필요합니다.
 
+```go
+type Transform [3][3]float64
+type LinesOfText [][]byte
+```
+
+slice의 길이는 변할 수 있기 때문에, rows 별로 slice의 길이는 다를 수 있습니다. 다음과 같은 작업이 가능합니다.
+
+```go
+text := LinesOfText{
+  []byte("Now is the time"),
+  []byte("for all good gophers"),
+  []byte("to bring some fun to the party."),
+}
+```
+
+어떤 이미지 파일의 pixel 별로 값을 스캔해야한다던지 하는 경우, 2차원 slice의 메모리를 할당해야할 필요가 있습니다. 각 row별로 length가 다를 수 있으므로, 다음과 같이 할당을 시켜야합니다.
+
+```go
+picture := make([][]uint8, YSize) // 줄 갯수
+for i := range picture {
+  picture[i] = make([]uint8, XSize) // 열 갯수
+}
+```
+
+다음과 같은 방식도 가능합니다.
+
+```go
+picture := make([][]uint8, YSize)
+pixels := make([]uint8, XSize*YSize)
+// XSize만큼 자르면서 할당시키기
+for i := range(picture) {
+	picture[i], pixels = pixels[:XSize], pixels[XSize:]
+}
+```
+
+<br/>
 
 ### Maps
 
+key-value 데이터 구조를 만들기 위해 필요합니다. key에는 slice 타입 말고는 어떠한 타입도 key가 될 수 있습니다. Slice와 같이 map은 자신을 구성하는 데이터들의 참조를 갖습니다.
 
+```go
+// map 초기화
+var timeZone = map[string]int{
+  "UTC": 0*60*60,
+  "EST": -5*60*60,
+  "CST": -6*60*60,
+  "MST": -7*60*60,
+  "PST": -8*60*60,
+  "KST": 9*60*60,
+}
+// map의 key를 통한 value 접근
+offset := timeZone["KST"]
+```
+
+`timeZone` 변수에 없는 key를 접근하려하면 어떻게 처리되는지는 다음 코드를 통해 확인해 볼 수 있다.
+
+```go
+var seconds int
+var ok bool
+seconds, ok = timeZone[tz]
+
+func offset(tz string) int {
+  if seconds, ok := timeZone[tz]; ok {
+    return seconds
+  }
+  log.Println("unknown time zone:", tz)
+  return 0
+}
+```
+
+map에 존재하는 `tz`로 접근하려하면 `seconds`는 올바른 값을 가질 것이고, 그렇지 못하면 에러 메세지와 함께 `seconds`는 0이 될 것이다.
+
+map에 해당하는 key-value를 삭제하기 위해서는 다음과 같이 하면 된다. 존재하지 않는 key를 삭제하려해도 안전하다.
+
+```go
+delete(timeZone, "CST")
+```
+
+<br/>
 
 ### Printing
 
+C의 `printf` 같이 Go에서 Formatted printing 방식이 있습니다. 근데 좀 여러가지 종류가 있습니다.
 
+`fmt.Printf`, `fmt.Fprintf`, `fmt.Sprintf` 등이 있는데, `Sprintf` 같은 경우는 formatted string을 return해주는 역할을 하기도 합니다.
+
+```go
+fmt.Printf("%v\n", timeZone) // or just fmt.Println(timeZone)
+```
+
+그러면 다음과 같은 결과를 얻을 것입니다.
+
+```text
+map[CST:-21600 EST:-18000 KST:32400 MST:-25200 PST:-28800 UTC:0]
+```
+
+`%v`는 정말 그대로 value를 출력하는 것입니다.
+
+```go
+type T struct {
+    a int
+    b float64
+    c string
+}
+t := &T{ 7, -2.35, "abc\tdef" }
+fmt.Printf("%v\n", t)
+fmt.Printf("%+v\n", t)
+fmt.Printf("%#v\n", t)
+fmt.Printf("%#v\n", timeZone)
+```
+
+이에 대한 결과는
+
+```text
+&{7 -2.35 abc   def}
+&{a:7 b:-2.35 c:abc     def}
+&main.T{a:7, b:-2.35, c:"abc\tdef"}
+map[string]int{"CST":-21600, "EST":-18000, "KST":32400, "MST":-25200, "PST":-28800, "UTC":0}
+```
+
+`%+v` 는 데이터의 구조를 그 이름과 함께 출력해주고, `%#v`는 Go의 문법에 맞게 출력해줍니다.
+
+* `string`이나 `[]byte`에 대해서 `%q`를 사용하면 문자열을 escape하여 print할 수 있습니다.
+
+* 어떤 변수의 type을 출력하려면 `%T`를 사용합니다.
+* 그 외 수많은 formatting 옵션은 [링크](https://golang.org/pkg/fmt/)를 참고하시면 좋습니다.
+
+<br/>
 
 ### Append
 
+Go의 built-in 함수인 `append` 은 우리가 [위에서](###Slices) 작성한 `Append` 함수와 좀 다릅니다.
+
+그 형태는 다음과 같이 작성해볼 수 있습니다. 
+
+```go
+func append(slice []T, slements ...T) []T
+```
+
+T는 어떤 타입에 대한 placeholder 로 볼 수 있는데, Go에서는 generic을 사용할 수 없기 때문에 built-in으로 제공되는 것입니다. 컴파일러의 도움이 필요한 부분입니다.
+
+```go
+x := []int{1,2,3}
+y := []int{4,5,6}
+// x와 y의 각 데이터의 타입이 맞지 않으면 컴파일 실패
+x = append(x, y...)
+fmt.Println(x)
+```
+
+<br/>
