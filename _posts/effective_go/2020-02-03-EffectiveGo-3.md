@@ -336,3 +336,9 @@ fmt.Println(x)
 ```
 
 <br/>
+
+<br/>
+
+## References
+
+* https://golang.org/doc/effective_go.html#data

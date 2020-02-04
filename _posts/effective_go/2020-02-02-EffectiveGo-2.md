@@ -348,3 +348,10 @@ leaving a
 leaving b
 ```
 
+<br/>
+
+<br/>
+
+## References
+
+* https://golang.org/doc/effective_go.html

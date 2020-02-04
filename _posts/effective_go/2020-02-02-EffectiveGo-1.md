@@ -134,3 +134,9 @@ C와 같이 Go에서도 semicolon을 사용하여 statement를 마무리 합니�
   ```
 
 <br/>
+
+<br/>
+
+## References
+
+* https://golang.org/doc/effective_go.html
